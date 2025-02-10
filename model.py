@@ -1,7 +1,6 @@
 from ultralytics import YOLO
 import yaml
 from pathlib import Path
-import multiprocessing
 
 
 def main():
@@ -30,7 +29,7 @@ def main():
     # Train the model
     results = model.train(
         data='dataset.yaml',
-        epochs=100,
+        epochs=35,
         imgsz=640,
         batch=50,
         device='0',
@@ -56,5 +55,5 @@ def main():
 
 
 if __name__ == '__main__':
-    multiprocessing.freeze_support()  # Add this line for Windows support
+    
     main()
