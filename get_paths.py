@@ -1,3 +1,5 @@
+
+# %%
 import pandas as pd
 from pathlib import Path
 import cv2
@@ -14,6 +16,7 @@ base_path = Path(base_path_str)
 splits = ["train", "test", "val"]
 
 
+# %%
 def get_paths_to_csv(base_path, output_csv="dataset_paths.csv", mode=["images", "labels"]):
     """
     Get file paths for images and labels and write them to a CSV file with debug information.
@@ -24,8 +27,8 @@ def get_paths_to_csv(base_path, output_csv="dataset_paths.csv", mode=["images", 
 
     for split in splits:
         # Updated paths to look directly in split directories
-        img_dir = base_path / split / "images"  # Changed order to split/images
-        label_dir = base_path / split / "labels"  # Changed order to split/labels
+        img_dir = base_path / "dataset"/ split / "images"  # Changed order to split/images
+        label_dir = base_path / "dataset"/ split / "labels"  # Changed order to split/labels
 
         print(f"\nChecking split: {split}")
         print(f"Image directory exists: {img_dir.exists()}")
@@ -61,10 +64,13 @@ def get_paths_to_csv(base_path, output_csv="dataset_paths.csv", mode=["images", 
     return df
 
 
-# get_paths_to_csv(base_path=base_path)
+
+# %% 
+get_paths_to_csv(base_path=base_path)
 
 
 
+# %%
 def pixel_dist(base_path, splits=['train', 'test', 'val'], save_dir='plots'):
     df = pd.read_csv("dataset_paths.csv")
     values = {}
@@ -121,6 +127,6 @@ def pixel_dist(base_path, splits=['train', 'test', 'val'], save_dir='plots'):
 
 
 pixel_dist(base_path,  save_dir='distribution_plots')
-    
-# get_paths_to_csv(base_path=base_path)
+
+# %%
 
