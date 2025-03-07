@@ -1,0 +1,12 @@
+path: C:\Users\tange\vscode\manoverboard
+train: dataset/train/images
+val: dataset/val/images
+test: dataset/test/images
+names:
+  0: cross over
+  1: drill through
+  2: one foot above second
+  3: sit
+  4: two feet off the ground
+  5: two feet on first
+nc: 6
